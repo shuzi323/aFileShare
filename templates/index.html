@@ -1,0 +1,91 @@
+{{ template "header.html" .}}
+    <body>
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f0bbd1;">
+                    <a class="navbar-brand" href="/">home</a>
+            </nav>
+        <div class="online-list">
+            {{ range $name := .dirs }}
+            <div class="ebox" >
+                <a href="/">
+                <img src=""  id="{{ $name }}">
+                <p class="etitle">{{ $name }}</p>
+                </a>
+            </div> 
+            <script>
+                $(document).ready(function(){
+                    let imgID1 = "#" + validJQueryID({{ $name }})
+                    $(imgID1).attr("src","/static/icon/directory.png")
+                })
+            </script>  
+            {{ end }}
+
+            {{ range $name2 := .files }}
+            <div class="ebox">
+                <a href="/preView/{{ $name2 }}">
+                    <img src="" id="{{ $name2 }}">
+                </a>
+                <a href="/download/{{ $name2 }}">
+                    <p class="etitle">{{ $name2 }}</p>
+                </a>
+            </div> 
+            <script>
+                $(document).ready(function(){
+                    let imgID = "#" + validJQueryID({{ $name2 }})
+                    imgSrc(imgID)
+                }) 
+            </script>  
+            {{ end }}
+        </div>
+
+        <script>
+            var pattFile = new RegExp("\\.(pdf|txt|png|jpg|mp4|mkv|doc|docx|ppt|pptx)$", "i");
+            function imgSrc(xID){
+                if (pattFile.test(xID)===false){
+                    $(xID).attr("src", "/static/icon/unknown.png") 
+                }else{
+                    let tempSlice = xID.split(/\./);
+                    let dotFile = tempSlice[tempSlice.length-1]
+
+                    let wordDoc = /(doc|docx)$/i
+                    let pdf = /pdf$/i
+                    let picture = /(png)|(jpg)$/i
+                    let ppt = /(ppt)|(pptx)$/i
+                    let txt = /(txt)$/i
+                    let video = /(mp4)|(mkv)$/i
+                    if (wordDoc.test(dotFile)){
+                        $(xID).attr("src", "/static/icon/wrod.png") 
+                    }else if (pdf.test(dotFile)){
+                        $(xID).attr("src", "/static/icon/pdf.png") 
+                    }else if (picture.test(dotFile)){
+                        $(xID).attr("src", "/static/icon/picture.png") 
+                    }else if (ppt.test(dotFile)){
+                        $(xID).attr("src", "/static/icon/ppt.png") 
+                    }else if (txt.test(dotFile)){
+                        $(xID).attr("src", "/static/icon/txt.png") 
+                    }else if (video.test(dotFile)){
+                        $(xID).attr("src", "/static/icon/movie.png") 
+                    }
+                    
+                }                
+            }
+
+            var patt = new RegExp("[!#$%&()*+,./:;<=>?@^\\[\\]{|}~ ]");
+            function validJQueryID(x) {            
+                var n = x.search(patt);
+                if ( n < 0 ){
+                    return x;
+                } else {
+                    return x.slice(0,n)+"\\"+ x.slice(n,n+1)+validJQueryID(x.slice(n+1, x.length));
+                }
+            }
+        </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#3").attr("src","/static/icon/pdf.png")
+        })
+    </script>  
+
+
+    </body>
+</html>

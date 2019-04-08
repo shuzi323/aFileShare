@@ -1,0 +1,48 @@
+.online-list .ebox{float:left;margin:15px 25px 0 0;display:block;overflow:hidden;position:relative;border:1px solid #e5e9ef;border-radius:4px;background:#fff;transition:all .1s linear
+}
+.online-list .ebox .w-later{width:22px;height:22px;background-image:url(https://static.hdslb.com/images/base/watchlater-1.png);position:absolute;right:5px;top:116px
+}
+.online-list .ebox .w-later.added{background-image:url(https://static.hdslb.com/images/base/watchlater-2.png)
+}
+.online-list .ebox:hover .w-later{display:block
+}
+.online-list .ebox:hover .ol b{color:#f15d8f
+}
+.online-list .ebox img{width:150px;height:150px;display:block
+}
+.online-list .ebox .einfo{position:absolute;display:block;left:142px;top:43px;color:#666;line-height:14px;height:43px;overflow:hidden;width:180px
+}
+.online-list .ebox .etitle{height:40px;line-height:20px;overflow:hidden;width:180px;margin:8px 14px;color:#222;transition:all .1s linear
+}
+.online-list .ebox a:hover .etitle{color:#00a1d6
+}
+.online-list .ebox .ol{background:#e5e9ef;text-align:center;margin-top:8px;height:30px;line-height:30px
+}
+.online-list .ebox .ol b{font-size:14px;transition:all .1s linear;margin-right:5px
+}
+.online-list .ebox .dlo{margin:0 14px;width:180px
+}
+.online-list .ebox .dlo b{font-weight:400;color:#aaa;padding-left:15px;background:url(/images/v2images/icons_home.png) 0 0 no-repeat;min-width:75px;display:inline-block
+}
+.online-list .ebox .dlo .click{background-position:0 -208px
+}
+.online-list .ebox .dlo .plun{background-position:0 -363px
+}
+.online-list .ebox .dlo .time{background-position:0 -1291px
+}
+.online-list .ebox .dlo span{line-height:12px;color:#99a2aa;width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block
+}
+.online-list .ebox .dlo span .b-icon{vertical-align:top;margin-right:5px
+}
+.online-list .ebox .dlo .author{line-height:12px;width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block;margin-top:5px;width:180px;line-height:16px;color:#99a2aa
+}
+.online-list .ebox .dlo .author:hover{color:#00a1d6
+}
+@media screen and (max-width:1400px){
+.online-list .ebox{margin-right:44px
+}
+.online-list .ebox .einfo{width:140px
+}
+}
+
+

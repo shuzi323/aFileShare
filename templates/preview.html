@@ -1,0 +1,14 @@
+{{ template "header.html" .}}
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f0bbd1;">
+            <a class="navbar-brand" href="/">home</a>
+        </nav>
+        <h1>{{ .filename }}</h1>
+        <p>size:&nbsp;&nbsp;{{ .size }}</p>
+        <a href="/viewData/{{ .filename }}">
+            <h3>测试</h3>
+        </a>
+        <video controls="controls">
+            <source src="/viewData/{{ .filename }}" type="video/mp4"/>
+        </video>
+    </body>
